@@ -16,6 +16,8 @@ eureka:
 # CLOUD GATEWAY
 spring:
   cloud:
+    config:
+     import-check.enabled: false
     gateway:
       discovery:
         locator:
@@ -27,7 +29,7 @@ spring:
           predicates:
             - Path=/licensing/**
           filters:
-            - RewritePath=/licensing/(?<path>.*), /${path}
+            - RewritePath=/licensing/(?<path>.*), /$\{path}
 
 # ACTUATOR MANAGEMENT
 management:
