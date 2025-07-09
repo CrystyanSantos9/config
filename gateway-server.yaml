@@ -21,13 +21,13 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-    #   routes:
-    #     - id: licensing-service
-    #       uri: lb://licensing-service
-    #       predicates:
-    #         - Path=/licensing/**
-    #       filters:
-    #         - RewritePath=/licensing/(?<path>.*), /${path}
+      routes:
+        - id: licensing-service
+          uri: lb://licensing-service
+          predicates:
+            - Path=/licensing/**
+          filters:
+            - RewritePath=/licensing/(?<path>.*), /${path}
 
 # ACTUATOR MANAGEMENT
 management:
