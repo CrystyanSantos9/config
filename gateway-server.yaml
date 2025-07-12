@@ -16,20 +16,18 @@ eureka:
 # CLOUD GATEWAY
 spring:
   cloud:
-    config:
-     import-check.enabled: false
     gateway:
       discovery:
         locator:
           enabled: true
           lowerCaseServiceId: true
-      routes:
-        - id: licensing-service
-          uri: lb://licensing-service
-          predicates:
-            - Path=/licensing/**
-          filters:
-            - RewritePath=/licensing/(?<path>.*), /$\{path}
+      # routes:
+      #   - id: licensing-service
+      #     uri: lb://licensing-service
+      #     predicates:
+      #       - Path=/licensing/**
+      #     filters:
+      #       - RewritePath=/licensing/(?<path>.*), /$\{path}
 
 # ACTUATOR MANAGEMENT
 management:
